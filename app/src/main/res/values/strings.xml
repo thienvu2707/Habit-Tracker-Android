@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Habit Tracker</string>
+    <string name="activity">Activity</string>
+    <string name="calories">Calories</string>
+
+    <!--Database-->
+    <string name="table_name">Habit_of_person</string>
+    <string name="_id_habit">_id</string>
+    <string name="name_habit">Name_of_activity</string>
+    <string name="time_habit">Time</string>
+    <string name="calories_gain">Calories_gain</string>
+    <string name="calories_loss">Calories_loss</string>
+    <string name="action_save">save</string>
+    <string name="action_delete">delete</string>
+    <string name="unit_time">min</string>
+    <string name="unit_calories">Cal</string>
+</resources>
