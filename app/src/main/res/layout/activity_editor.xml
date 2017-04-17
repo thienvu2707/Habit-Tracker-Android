@@ -78,7 +78,7 @@
 
                 <TextView
                     style="@style/EditorUnitsStyle"
-                    android:text="@string/unit_calories"/>
+                    android:text="@string/unit_calories" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -93,9 +93,8 @@
 
                 <TextView
                     style="@style/EditorUnitsStyle"
-                    android:text="@string/unit_calories"/>
+                    android:text="@string/unit_calories" />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>

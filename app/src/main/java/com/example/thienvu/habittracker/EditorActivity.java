@@ -32,8 +32,7 @@ public class EditorActivity extends AppCompatActivity {
         mLossEditText = (EditText) findViewById(R.id.edit_calories_loss);
     }
 
-    private void insertHabit()
-    {
+    private void insertHabit() {
         //get text from all the edit Text
         String editActivity = mActivityEditText.getText().toString();
 
@@ -62,15 +61,19 @@ public class EditorActivity extends AppCompatActivity {
         //insert into database
         long newRowId = db.insert(HabitDatabase.HabitEntry.TABLE_NAME, null, contentValues);
 
-        if (newRowId == -1)
-        {
+        //check if data is saved to database
+        if (newRowId == -1) {
             Toast.makeText(this, "Error with saving Habit in database", Toast.LENGTH_SHORT).show();
-        } else
-        {
+        } else {
             Toast.makeText(this, "Save Habit successfully", Toast.LENGTH_SHORT).show();
         }
     }
 
+    /**
+     * Create a menu option to press
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //Inflate the menu option from the res/menu
@@ -79,12 +82,16 @@ public class EditorActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * action when pressed on menu items
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         //user clicked on a menu option in the app bar overflow menu
-        switch (item.getItemId())
-        {
+        switch (item.getItemId()) {
             //Response to a click on "SAVE"
             case R.id.action_save:
                 //save what edit

@@ -29,20 +29,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * onStart to refresh UI if something change in the database
+     */
     @Override
     protected void onStart() {
         super.onStart();
         displayInfo();
     }
 
-    private void displayInfo()
-    {
+    private Cursor displayInfo() {
         HabitDbHelper helper = new HabitDbHelper(this);
 
         SQLiteDatabase database = helper.getReadableDatabase();
 
 //        Cursor cursor = database.rawQuery("SELECT * FROM " + HabitDatabase.HabitEntry.TABLE_NAME, null);
 
+        //projection this is to select column that needed to show
         String[] projection = {
                 HabitDatabase.HabitEntry._ID_HABIT,
                 HabitDatabase.HabitEntry.NAME_OF_ACTIVITY,
@@ -51,11 +54,12 @@ public class MainActivity extends AppCompatActivity {
                 HabitDatabase.HabitEntry.CALORIES_LOSS
         };
 
+        //This is Select ... from table_name
         Cursor cursor = database.query(HabitDatabase.HabitEntry.TABLE_NAME, projection, null, null, null, null, null, null);
 
         try {
             TextView viewText = (TextView) findViewById(R.id.text_view_habit);
-            viewText.setText("Number of row: " + cursor.getCount() +"\n\n");
+            viewText.setText("Number of row: " + cursor.getCount() + "\n\n");
 
             viewText.append(HabitDatabase.HabitEntry._ID_HABIT + " - " +
                     HabitDatabase.HabitEntry.NAME_OF_ACTIVITY + " - " +
@@ -71,8 +75,7 @@ public class MainActivity extends AppCompatActivity {
             int lossColumnIndex = cursor.getColumnIndex(HabitDatabase.HabitEntry.CALORIES_LOSS);
 
             //move the cursor
-            while (cursor.moveToNext())
-            {
+            while (cursor.moveToNext()) {
                 //read the column
                 int currentId = cursor.getInt(idColumnIndex);
                 String currentActivity = cursor.getString(nameColumnIndex);
@@ -81,15 +84,15 @@ public class MainActivity extends AppCompatActivity {
                 int currentLoss = cursor.getInt(lossColumnIndex);
 
                 viewText.append("\n" + currentId + " - "
-                + currentActivity + " - "
-                + currentTime + " - "
-                + currentGain + " - "
-                + currentLoss);
+                        + currentActivity + " - "
+                        + currentTime + " - "
+                        + currentGain + " - "
+                        + currentLoss);
             }
 
         } finally {
             cursor.close();
         }
+        return cursor;
     }
-
 }

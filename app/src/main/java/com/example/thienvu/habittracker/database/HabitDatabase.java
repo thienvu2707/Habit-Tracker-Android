@@ -15,6 +15,7 @@ public class HabitDatabase {
 
     public static final class HabitEntry implements BaseColumns
     {
+        //Table name
         public static final String TABLE_NAME = "habit";
 
         //Name of each column
@@ -23,6 +24,5 @@ public class HabitDatabase {
         public static final String TIME_OF_ACTIVITY = "time";
         public static final String CALORIES_GAIN = "gain";
         public static final String CALORIES_LOSS = "loss";
-
     }
 }
