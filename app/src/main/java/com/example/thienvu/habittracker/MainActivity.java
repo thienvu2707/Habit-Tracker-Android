@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.thienvu.habittracker.database.HabitDatabase;
 import com.example.thienvu.habittracker.database.HabitDbHelper;
@@ -56,14 +55,14 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = database.query(HabitDatabase.HabitEntry.TABLE_NAME, projection, null, null, null, null, null, null);
 
         try {
-            TextView viewText = (TextView) findViewById(R.id.text_view_habit);
-            viewText.setText("Number of row: " + cursor.getCount() + "\n\n");
-
-            viewText.append(HabitDatabase.HabitEntry._ID_HABIT + " - " +
-                    HabitDatabase.HabitEntry.NAME_OF_ACTIVITY + " - " +
-                    HabitDatabase.HabitEntry.TIME_OF_ACTIVITY + " - " +
-                    HabitDatabase.HabitEntry.CALORIES_GAIN + " - " +
-                    HabitDatabase.HabitEntry.CALORIES_LOSS);
+//            TextView viewText = (TextView) findViewById(R.id.text_view_habit);
+//            viewText.setText("Number of row: " + cursor.getCount() + "\n\n");
+//
+//            viewText.append(HabitDatabase.HabitEntry._ID_HABIT + " - " +
+//                    HabitDatabase.HabitEntry.NAME_OF_ACTIVITY + " - " +
+//                    HabitDatabase.HabitEntry.TIME_OF_ACTIVITY + " - " +
+//                    HabitDatabase.HabitEntry.CALORIES_GAIN + " - " +
+//                    HabitDatabase.HabitEntry.CALORIES_LOSS);
 
             //figure which index in which column
             int idColumnIndex = cursor.getColumnIndex(HabitDatabase.HabitEntry._ID_HABIT);
@@ -81,11 +80,11 @@ public class MainActivity extends AppCompatActivity {
                 int currentGain = cursor.getInt(gainColumnIndex);
                 int currentLoss = cursor.getInt(lossColumnIndex);
 
-                viewText.append("\n" + currentId + " - "
-                        + currentActivity + " - "
-                        + currentTime + " - "
-                        + currentGain + " - "
-                        + currentLoss);
+//                viewText.append("\n" + currentId + " - "
+//                        + currentActivity + " - "
+//                        + currentTime + " - "
+//                        + currentGain + " - "
+//                        + currentLoss);
             }
 
         } finally {
