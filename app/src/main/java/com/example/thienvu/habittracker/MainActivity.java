@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
         SQLiteDatabase database = helper.getReadableDatabase();
 
-//        Cursor cursor = database.rawQuery("SELECT * FROM " + HabitDatabase.HabitEntry.TABLE_NAME, null);
-
         //projection this is to select column that needed to show
         String[] projection = {
                 HabitDatabase.HabitEntry._ID_HABIT,
